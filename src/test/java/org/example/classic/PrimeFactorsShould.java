@@ -33,11 +33,13 @@ public class PrimeFactorsShould {
     void numberOneHasNoFactors() {
         ArrayList<Integer> factors = new PrimeFactors().decompose(1);
 
-        assertEquals(0, factors.size());
+        ArrayList<Integer> expected = new ArrayList<>();
+
+        assertEquals(expected, factors);
     }
 
     @Test
-    void numberTwoIsPrime() {
+    void number2() {
         ArrayList<Integer> factors = new PrimeFactors().decompose(2);
 
         ArrayList<Integer> expected = new ArrayList<>();
@@ -47,7 +49,7 @@ public class PrimeFactorsShould {
     }
 
     @Test
-    void numberThreeIsPrime() {
+    void number3() {
         ArrayList<Integer> factors = new PrimeFactors().decompose(3);
 
         ArrayList<Integer> expected = new ArrayList<>();
@@ -57,7 +59,7 @@ public class PrimeFactorsShould {
     }
 
     @Test
-    void numberFourIsCompound() {
+    void number4() {
         ArrayList<Integer> factors = new PrimeFactors().decompose(4);
 
         ArrayList<Integer> expected = new ArrayList<>();
@@ -68,7 +70,7 @@ public class PrimeFactorsShould {
     }
 
     @Test
-    void numberFiveIsPrime() {
+    void number5() {
         ArrayList<Integer> factors = new PrimeFactors().decompose(5);
 
         ArrayList<Integer> expected = new ArrayList<>();
@@ -78,7 +80,7 @@ public class PrimeFactorsShould {
     }
 
     @Test
-    void numberSixIsCompound() {
+    void number6() {
         ArrayList<Integer> factors = new PrimeFactors().decompose(6);
 
         ArrayList<Integer> expected = new ArrayList<>();
@@ -89,7 +91,7 @@ public class PrimeFactorsShould {
     }
 
     @Test
-    void numberEightIsCompound() {
+    void number8() {
         ArrayList<Integer> factors = new PrimeFactors().decompose(8);
 
         ArrayList<Integer> expected = new ArrayList<>();
@@ -101,7 +103,7 @@ public class PrimeFactorsShould {
     }
 
     @Test
-    void numberNineIsCompound() {
+    void number9() {
         ArrayList<Integer> factors = new PrimeFactors().decompose(9);
 
         ArrayList<Integer> expected = new ArrayList<>();
@@ -112,18 +114,7 @@ public class PrimeFactorsShould {
     }
 
     @Test
-    void numberTenIsCompound() {
-        ArrayList<Integer> factors = new PrimeFactors().decompose(10);
-
-        ArrayList<Integer> expected = new ArrayList<>();
-        expected.add(2);
-        expected.add(5);
-
-        assertEquals(expected, factors);
-    }
-
-    @Test
-    void numberTwelveIsCompound() {
+    void number12() {
         ArrayList<Integer> factors = new PrimeFactors().decompose(12);
 
         ArrayList<Integer> expected = new ArrayList<>();
@@ -135,55 +126,7 @@ public class PrimeFactorsShould {
     }
 
     @Test
-    void numberFifteenIsCompound() {
-        ArrayList<Integer> factors = new PrimeFactors().decompose(15);
-
-        ArrayList<Integer> expected = new ArrayList<>();
-        expected.add(3);
-        expected.add(5);
-
-        assertEquals(expected, factors);
-    }
-
-    @Test
-    void numberSixteenIsCompound() {
-        ArrayList<Integer> factors = new PrimeFactors().decompose(16);
-
-        ArrayList<Integer> expected = new ArrayList<>();
-        expected.add(2);
-        expected.add(2);
-        expected.add(2);
-        expected.add(2);
-
-        assertEquals(expected, factors);
-    }
-
-    @Test
-    void numberEighteenIsCompound() {
-        ArrayList<Integer> factors = new PrimeFactors().decompose(18);
-
-        ArrayList<Integer> expected = new ArrayList<>();
-        expected.add(2);
-        expected.add(3);
-        expected.add(3);
-
-        assertEquals(expected, factors);
-    }
-
-    @Test
-    void number27IsCompound() {
-        ArrayList<Integer> factors = new PrimeFactors().decompose(27);
-
-        ArrayList<Integer> expected = new ArrayList<>();
-        expected.add(3);
-        expected.add(3);
-        expected.add(3);
-
-        assertEquals(expected, factors);
-    }
-
-    @Test
-    void number54IsCompound() {
+    void number54() {
         ArrayList<Integer> factors = new PrimeFactors().decompose(54);
 
         ArrayList<Integer> expected = new ArrayList<>();
@@ -194,7 +137,4 @@ public class PrimeFactorsShould {
 
         assertEquals(expected, factors);
     }
-
-
-
 }

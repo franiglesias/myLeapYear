@@ -17,8 +17,8 @@ public class Row implements org.example.classic.tictactoe.rule.WinRule {
 
     public boolean isTakenBy() {
         return board.at(0, row).isTakenBy(player)
-                && board.at(2, row).isTakenBy(player)
-                && board.at(1, row).isTakenBy(player);
+                && board.at(1, row).isTakenBy(player)
+                && board.at(2, row).isTakenBy(player);
     }
 
     @Override

@@ -1,10 +1,8 @@
-package org.example.classic.tictactoe;
+package org.example.classic.tictactoe.cell;
 
-public class EmptyCell implements Cell{
-    @Override
-    public boolean isTaken() {
-        return false;
-    }
+import org.example.classic.tictactoe.cell.Cell;
+
+public class EmptyCell implements Cell {
 
     @Override
     public boolean isTakenBy(String player) {
@@ -14,6 +12,11 @@ public class EmptyCell implements Cell{
     @Override
     public void assertIsAvailable() {
         // Empty cells are available
+    }
+
+    @Override
+    public boolean isTaken() {
+        return false;
     }
 
     @Override

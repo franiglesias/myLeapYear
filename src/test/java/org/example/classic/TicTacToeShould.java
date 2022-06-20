@@ -190,4 +190,33 @@ public class TicTacToeShould {
 
         assertEquals(expected, status);
     }
+
+    @Test
+    void finishGameWhenBoardIsFull() throws TakenPositionException {
+        game.start();
+        game.play(0, 0);
+        game.play(1, 0);
+        game.play(2, 0);
+        game.play(1, 1);
+        game.play(0, 1);
+        game.play(2, 1);
+        game.play(2, 2);
+        game.play(0, 2);
+        String status = game.play(1, 2);
+
+
+        String expected = """
+                Draw! Game over
+                                
+                +---+---+---+
+                | X | 0 | X |
+                +---+---+---+
+                | X | 0 | 0 |
+                +---+---+---+
+                | 0 | X | X |
+                +---+---+---+
+                """;
+
+        assertEquals(expected, status);
+    }
 }

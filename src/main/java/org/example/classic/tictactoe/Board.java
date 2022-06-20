@@ -1,6 +1,9 @@
 package org.example.classic.tictactoe;
 
-import org.example.classic.tictactoe.rule.*;
+import org.example.classic.tictactoe.cell.Cell;
+import org.example.classic.tictactoe.cell.EmptyCell;
+import org.example.classic.tictactoe.cell.PlayerCell;
+import org.example.classic.tictactoe.player.Player;
 
 import java.util.Arrays;
 
@@ -8,6 +11,7 @@ public class Board {
 
     private final Cell[] cells;
     private final BoardPrinter boardPrinter = new BoardPrinter(this);
+    private final Game game = new Game(this);
     private String winner;
 
     public Board() {
@@ -15,26 +19,33 @@ public class Board {
         Arrays.fill(cells, new EmptyCell());
     }
 
-    public void put(String player, int x, int y) throws TakenPositionException {
-        at(new Position(x, y)).assertIsAvailable();
-        cells[new Position(x, y).address()] = new PlayerCell(player);
-        winner = winner(player, x, y);
+    public void put(Player player, Position position) throws TakenPositionException {
+        ensureIsAvailable(position);
+        takeForPlayer(position, new PlayerCell(player));
+        verifyWeHaveWinner(player, position);
+    }
+
+    private void verifyWeHaveWinner(Player player, Position position) {
+        winner = game.winner(player, position);
+    }
+
+    private void takeForPlayer(Position position, PlayerCell p) {
+        cells[position.address()] = p;
+    }
+
+    private void ensureIsAvailable(Position position) throws TakenPositionException {
+        at(position).assertIsAvailable();
+    }
+
+    boolean allCellsAreTaken() {
+        for (Cell cell : cells) {
+            if (!cell.isTaken()) return false;
+        }
+        return true;
     }
 
     public String draw() {
         return boardPrinter.draw();
-    }
-
-    private String winner(String player, int x, int y) {
-        WinRule winRule = new Row(this, y, player,
-                new Column(this, x, player,
-                        new Diagonal(this, player,
-                                new AltDiagonal(this, player)
-                        )
-                )
-        );
-
-        return winRule.winner();
     }
 
     public Cell at(int x, int y) {
@@ -45,7 +56,7 @@ public class Board {
         return cells[p.address()];
     }
 
-    public Object[] cells() {
+    public Cell[] cells() {
         return cells;
     }
 

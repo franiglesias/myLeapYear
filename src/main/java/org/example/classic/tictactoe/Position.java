@@ -11,5 +11,14 @@ public class Position {
     }
 
     public int address() {
-        return (y * SIZE) + x;    }
+        return (y * SIZE) + x;
+    }
+
+    public int row() {
+        return y;
+    }
+
+    public int column() {
+        return x;
+    }
 }

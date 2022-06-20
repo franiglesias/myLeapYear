@@ -1,6 +1,7 @@
 package org.example.classic;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Set;
 
 public class Roman {
@@ -24,12 +25,14 @@ public class Roman {
 
         Set<Integer> keys = map.keySet();
 
+        // printing the elements of LinkedHashMap
         for (Integer key : keys) {
             while (decimal >= key) {
                 result.append(map.get(key));
                 decimal = decimal - key;
             }
         }
+
 
         return result.toString();
     }

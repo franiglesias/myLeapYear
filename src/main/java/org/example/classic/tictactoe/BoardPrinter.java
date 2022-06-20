@@ -1,5 +1,7 @@
 package org.example.classic.tictactoe;
 
+import java.util.Objects;
+
 public class BoardPrinter {
     private final Board board;
 
@@ -19,9 +21,14 @@ public class BoardPrinter {
                 """;
         String board = String.format(format, cells());
 
-        if (winner() != null) {
-            return String.format("Player %s won!\n\n", winner()) + board;
+        if (Objects.equals(winner(), "draw")) {
+            return String.format("Draw! Game over\n\n%s",  board);
         }
+
+        if (winner() != null) {
+            return String.format("Player %s won!\n\n%s", winner(), board);
+        }
+
         return board;
     }
 

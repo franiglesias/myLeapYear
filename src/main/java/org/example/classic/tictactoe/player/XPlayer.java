@@ -1,4 +1,4 @@
-package org.example.classic.tictactoe;
+package org.example.classic.tictactoe.player;
 
 public class XPlayer extends Player {
     public XPlayer() {
@@ -6,7 +6,7 @@ public class XPlayer extends Player {
     }
 
     @Override
-    String symbol() {
+    public String symbol() {
         return "X";
     }
 
